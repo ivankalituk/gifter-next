@@ -4,6 +4,7 @@ import './searchBarBig.scss'
 
 import search from '@/assets/images/Search.svg'
 import random from '@/assets/images/Random.svg'
+import Image from "next/image";
 
 
 interface SearchBarBigInterface {
@@ -110,7 +111,7 @@ const SearchBarBig: FC <SearchBarBigInterface> = ({handleSearchSubmitCallBack, h
     return(
         <div className="searchBarBig">
             <div className={inputShow? "searchBarBig_bar show" : "searchBarBig_bar"}>
-                <img src={search} alt="search" />
+                <Image src={search} alt="search" />
 
                 <input type="text" placeholder='Введіть назву подарунку' value={searchInput} onFocus={handleInputFocus} onBlur={handleUnFocus} onKeyDown={(event) => {handleSpecialKeyDown(event)}} onChange={(event) => handleChangeInput(event)}/>
 
@@ -127,7 +128,7 @@ const SearchBarBig: FC <SearchBarBigInterface> = ({handleSearchSubmitCallBack, h
 
             <div className={inputFocus? "searchBig_bar_Background show" : "searchBig_bar_Background"}></div>
 
-            <button onClick={handleRandomGiftCallBack}><img src={random} alt="random"/></button>
+            <button onClick={handleRandomGiftCallBack}><Image src={random} alt="random"/></button>
         </div>
     )
 }

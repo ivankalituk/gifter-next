@@ -4,6 +4,7 @@ import Image from 'next/image';
 import file from '../../public/file.svg'
 import Header from '@/components/header/header';
 import { useState } from 'react';
+
 export default function Home() {
 
     // блокировка скролла
@@ -24,7 +25,6 @@ export default function Home() {
   return (
     <div className={styles.app}>
       <Header scrollCallback = {scrollCallback} nameSearchCallBack={nameSearchCallBack}/>
-      <Image src={file} alt='file'></Image>
     </div>
   );
 }

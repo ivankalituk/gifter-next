@@ -7,6 +7,7 @@ import random from '@/assets/images/Random.svg'
 import { useGetRequest } from '@/hooks/useGetReuquest';
 import { getGiftNameByName } from '@/api/gifts';
 import { giftName } from '@/interfaces/interface';
+import Image from 'next/image';
 
 interface SearchBarInterface{
     nameSearchCallBack: (name: string) => void
@@ -40,7 +41,7 @@ const SearchBar: FC<SearchBarInterface> = ({nameSearchCallBack}) =>{
     return(
         <div className="searchBar">
             <div className="searchBar_bar">
-                <img src={search} alt="search" />
+                <Image src={search} alt="search" />
 
                 <input type="text" placeholder='Введіть назву подарунку' value={searchInput} onChange={(event) => handleSearchInputChange(event)}/>
 
@@ -54,7 +55,7 @@ const SearchBar: FC<SearchBarInterface> = ({nameSearchCallBack}) =>{
                 </div>}
             </div>
 
-            <button><img src={random} alt="random"/></button>
+            <button><Image src={random} alt="random"/></button>
         </div>
     )
 }
