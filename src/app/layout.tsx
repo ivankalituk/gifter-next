@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import ReduxProvider from "./ReduxProvider";
+import '@/assets/styles/globals.scss'
 
 export const metadata: Metadata = {
   title: "Gifter",
@@ -10,10 +12,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body>
-        {children}
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
       </body>
     </html>
   );

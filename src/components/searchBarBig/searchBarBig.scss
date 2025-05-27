@@ -1,0 +1,170 @@
+@import '@/assets/styles/veriables';
+
+// Перевести всё в ремы
+.searchBarBig{
+    display: flex;
+    align-items: center;
+    gap: 0.714rem;
+    // flex: 1;
+
+    > .searchBarBig_bar{
+        z-index: 0;
+        position: relative;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        background-color: $color-white;
+        height: 2.714rem;
+        border-radius: 0.571rem;
+
+        &.show{
+            z-index: 10000;
+        }
+
+        > img{
+            margin-left: 0.42rem;
+        }
+
+        > input{
+            margin-left: 0.857rem;
+            width: 13rem;
+            outline: none;
+            border: none;
+            font-family: 'Noah';
+            font-weight: 400;
+            color: $color-black;
+            font-size: 1rem;
+
+            &::placeholder{
+                color: $color-black;
+                opacity: 50%;
+            }
+        }
+
+        > button{
+            height: 100%;
+            outline: none;
+            border: none;
+            background-color: $color-white;
+            width: 6.571rem;
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 0.571rem;
+            // text-transform: uppercase;
+            transition: $transition-speed-button;
+
+            &:hover{
+                background-color: $color-grey;
+                transition: $transition-speed-button;
+            }
+
+            &:active{
+                background-color: $color-grey-active;
+                transition: $transition-speed-button;
+            }
+        }
+
+        > .searchBarBig_results{
+            position: absolute;
+            background-color: $color-white;
+            top: 32px;
+            z-index: 10000;
+            width: 100%;
+            padding:  0.5rem 0;
+            box-sizing: border-box;
+            border-radius: 0 0 0.57rem 0.57rem;
+
+            > button{
+                padding: 0 10px;
+                color: $color-black;
+                font-size: 1rem;
+                height: 2rem;
+                display: flex;
+                opacity: 0.8;
+                align-items: center;
+                cursor: pointer;
+                border: none;
+                outline: none;
+                background-color: $color-white;
+                width: 100%;
+                transition: opacity 0.5s ease;
+                transition: background-color 0.5s ease;
+                
+                &.active{
+                    opacity: 1;
+                    background-color: $color-grey;
+                }
+
+                &:hover{
+                    opacity: 1;
+                    background-color: $color-grey;
+                    transition: opacity 0.5s ease;
+                    transition: background-color 0.5s ease;
+                }
+            }
+        }
+    }
+
+    > .searchBig_bar_Background{
+        z-index: 1000;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        opacity: 0;
+        visibility: hidden;  
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.5s ease, visibility 0s 0.5s; 
+        pointer-events: none; 
+
+        &.show{
+            opacity: 0.5;
+            visibility: visible;  
+            transition: opacity 0.5s ease;  
+            pointer-events: auto;  
+        }
+    }
+
+    > button{
+        height: 2.714rem;
+        width: 2.714rem;
+        align-items: center;
+        justify-content: space-around;
+        outline: none;
+        border: none;
+        background-color: $color-white;
+        border-radius: 0.571rem;
+        // text-transform: uppercase;
+        transition: $transition-speed-button;
+
+        &:hover{
+            background-color: $color-grey;
+            transition: $transition-speed-button;
+        }
+
+        &:active{
+            background-color: $color-grey-active;
+            transition: $transition-speed-button;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .searchBarBig{
+        flex: 1;
+
+        > .searchBarBig_bar{
+
+            >input{
+                width: 100%;
+                flex: 1;
+            }
+        }
+
+        >button{
+            display: none;
+        }
+    }
+    
+}

@@ -1,8 +1,9 @@
+"use client"
 import { FC, useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import './header.scss'
-
+import Image from "next/image";
 import logo from '@/assets/images/logo.svg'
 import accountBackground from '@/assets/images/burgerAccoungBack.jpg'
 import sampleLogo from '@/assets/images/logoSample.jpg'
@@ -110,7 +111,7 @@ const Header: FC<HeaderProps> = ({scrollCallback, nameSearchCallBack}) =>{
 
                 <div className="header_leftGroup">
                     <Link href={'/'}>
-                        <img src={logo} alt="logo" />
+                        <Image src={logo} alt="logo" />
                         <h1>gifter</h1>
                     </Link>
 
@@ -122,7 +123,7 @@ const Header: FC<HeaderProps> = ({scrollCallback, nameSearchCallBack}) =>{
                     <Account />
                 </div>
 
-                <button className="burgerMenu"  onClick={handleBurger}><img src={burger} alt="alt" /></button>
+                <button className="burgerMenu"  onClick={handleBurger}><Image src={burger} alt="burger" /></button>
 
                 <div className="burgerMenu_Menu">
                     <div className={!burgerMenu? "burgerMenu_Menu_background open" : "burgerMenu_Menu_background"} onClick={handleBurger}></div>
@@ -130,12 +131,12 @@ const Header: FC<HeaderProps> = ({scrollCallback, nameSearchCallBack}) =>{
                     <div className={!burgerMenu? "burgerMenu_Menu_content open" : "burgerMenu_Menu_content" }>
 
                     <div className="burgerMenu_account" onClick={handleAccount}>
-                        <img src={accountBackground} alt="accountBack" />
+                        <Image src={accountBackground} alt="accountBack" />
 
                         <div className="burgerMenu_account_info_container">
                             {user.user_email !== null &&<div className="burgerMenu_account_info_inner">
                                 
-                                <img  src={user.user_imgUrl !== null? 'http://localhost:1000/' + user.user_imgUrl : sampleLogo}/>
+                                <Image src={user.user_imgUrl !== null? 'http://localhost:1000/' + user.user_imgUrl : sampleLogo} alt="userLogo"/>
 
                                 <div className="burgerMenu_account_info_data">
                                     <div className="burgerMenu_account_info_nickname">{user.user_nickName}</div>
@@ -152,44 +153,44 @@ const Header: FC<HeaderProps> = ({scrollCallback, nameSearchCallBack}) =>{
 
                     <div className="burgerMenu_links">
                         <Link href={'/'}>
-                            <img src={mainPageSVG}/>
+                            <Image src={mainPageSVG} alt="mainPage"/>
                             <span>Головна</span>
                         </Link>
                         
                         <Link href={'/suggest'}>
-                            <img src={suggestPageSVG}/>
+                            <Image src={suggestPageSVG} alt="suggest"/>
                             <span>Запропонувати</span>
                         </Link>
 
                         <Link href={'/profile'}>
-                            <img src={profilePageSVG}/>
+                            <Image src={profilePageSVG} alt="profile"/>
                             <span>Профіль</span>
                         </Link>
                         
                         <Link href={'/settings'}>
-                            <img src={settingsPageSVG}/>
+                            <Image src={settingsPageSVG} alt="settings"/>
                             <span>Налаштування</span>
                         </Link>
                     </div>
 
                     <div className="burgerMenu_links">
                         <Link href={'/adminPanel/suggests'}>
-                            <img src={suggestListPageSVG}/>
+                            <Image src={suggestListPageSVG} alt="suggestLi"/>
                             <span>Пропозиції</span>
                         </Link>
                         
                         <Link href={'/adminPanel/reports'}>
-                            <img src={reportsPageSVG}/>
+                            <Image src={reportsPageSVG} alt="report"/>
                             <span>Скарги</span>
                         </Link>
 
                         <Link href={'/adminPanel/admins'}>
-                            <img src={adminPageSVG}/>
+                            <Image src={adminPageSVG} alt="admin"/>
                             <span>Адміни</span>
                         </Link>
                         
                         <Link href={'/adminPanel/blacklist'}>
-                            <img src={blacklistPageSVG}/>
+                            <Image src={blacklistPageSVG} alt="blacklist"/>
                             <span>Чорний список</span>
                         </Link>
                     </div>
