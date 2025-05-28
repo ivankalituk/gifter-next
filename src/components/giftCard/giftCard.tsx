@@ -88,7 +88,7 @@ const GiftCard: FC <GiftCardInterface> = ({scrollCallback, data}) =>{
             <div className="giftCard_container">
 
                 <div className="giftCard_inner">
-                    <Image src={data.photoPath? 'http://localhost:1000/' + data.photoPath : sampleGiftPhoto} alt="Gift photo" />
+                    <Image src={data.photoPath? 'http://localhost:1000/' + data.photoPath : sampleGiftPhoto} alt="Gift photo" fill style={{ objectFit: 'contain' }}/>
                     
                     <div className="giftCard_name" onClick={handleGiftModalOpen}>{data.name}</div>
 
