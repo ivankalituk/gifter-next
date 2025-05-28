@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 import './giftCard.scss'
 
@@ -16,6 +16,7 @@ import { useUpdateRequest } from "@/hooks/useUpdateRequest";
 import { toggleBookmark } from "@/api/bookmarks";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { RootState } from "@/interfaces/interface";
+import Image from "next/image";
 
 interface GiftCardInterface  {
     scrollCallback: (block: boolean) => void
@@ -87,25 +88,25 @@ const GiftCard: FC <GiftCardInterface> = ({scrollCallback, data}) =>{
             <div className="giftCard_container">
 
                 <div className="giftCard_inner">
-                    <img src={data.photoPath? 'http://localhost:1000/' + data.photoPath : sampleGiftPhoto} alt="Gift photo" />
+                    <Image src={data.photoPath? 'http://localhost:1000/' + data.photoPath : sampleGiftPhoto} alt="Gift photo" />
                     
                     <div className="giftCard_name" onClick={handleGiftModalOpen}>{data.name}</div>
 
                     <div className="giftCard_reating" onClick={handleGiftModalOpen}>
                         <div className="giftCard_reating_stars">
-                            <img src={starGrey} alt="star" />
-                            <img src={starGrey} alt="star" />
-                            <img src={starGrey} alt="star" />
-                            <img src={starGrey} alt="star" />
-                            <img src={starGrey} alt="star" />
+                            <Image src={starGrey} alt="star" />
+                            <Image src={starGrey} alt="star" />
+                            <Image src={starGrey} alt="star" />
+                            <Image src={starGrey} alt="star" />
+                            <Image src={starGrey} alt="star" />
                         </div>
 
                         <div className="giftCard_reating_reating" style={data.reating !== null? {width: data.reating*20 +'%'} : {width: '0%'}} >
-                            <img src={starYellow} alt="star" />
-                            <img src={starYellow} alt="star" />
-                            <img src={starYellow} alt="star" />
-                            <img src={starYellow} alt="star" />
-                            <img src={starYellow} alt="star" />
+                            <Image src={starYellow} alt="star" />
+                            <Image src={starYellow} alt="star" />
+                            <Image src={starYellow} alt="star" />
+                            <Image src={starYellow} alt="star" />
+                            <Image src={starYellow} alt="star" />
                         </div>
                     </div>
 
@@ -121,13 +122,13 @@ const GiftCard: FC <GiftCardInterface> = ({scrollCallback, data}) =>{
 
                 <div className="giftCard_additional">
                     <div className="giftCard_additional_container">
-                        <img src={dots} alt="dots" onClick={handleAdditional} />
+                        <Image src={dots} alt="dots" onClick={handleAdditional} />
 
                         <button className={additional? 'active' : 'disabled'} onClick={handleReportOpen}>Поскаржтись</button>
                     </div>
                 </div>
 
-                <div className="giftCard_mark"><img src={mark}  alt="mark" className={marked? "active": ""} onClick={handleMarked}/></div>
+                <div className="giftCard_mark"><Image src={mark}  alt="mark" className={marked? "active": ""} onClick={handleMarked}/></div>
             </div>
 
             {report && <Modal onClose = {handleReportClose} Component={ModalReport} modalProps={{gift_id: data.id}} scrollCallback = {scrollCallback}/>}

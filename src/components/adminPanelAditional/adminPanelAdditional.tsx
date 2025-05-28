@@ -1,6 +1,6 @@
 import './adminPanelAdditional.scss'
 
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { FC } from "react";
 
 
@@ -12,11 +12,11 @@ const AdminPanelAdditional: FC <{page : string}>= ({page}) =>{
     return (
         <div className="adminPanelAdditional">
             
-            <Link className={page === 'gifts'? "chosen" : ""} to={'/adminPanel/suggests'}>Пропозиції</Link>
-            <Link className={page === 'report'? "chosen" : ""} to={'/adminPanel/reports'}>Скарги</Link>
-            <Link className={page === 'admins'? "chosen" : ""} to={'/adminPanel/admins'}>Керування адмінами</Link>
-            <Link className={page === 'blacklist'? "chosen" : ""} to={'/adminPanel/blacklist'}>Чорний список</Link>
-            <Link className={page === 'stats'? "chosen" : ""} to={'/adminPanel/stats'}>Статистика</Link>
+            <Link className={page === 'gifts'? "chosen" : ""} href={'/adminPanel/suggests'}>Пропозиції</Link>
+            <Link className={page === 'report'? "chosen" : ""} href={'/adminPanel/reports'}>Скарги</Link>
+            <Link className={page === 'admins'? "chosen" : ""} href={'/adminPanel/admins'}>Керування адмінами</Link>
+            <Link className={page === 'blacklist'? "chosen" : ""} href={'/adminPanel/blacklist'}>Чорний список</Link>
+            <Link className={page === 'stats'? "chosen" : ""} href={'/adminPanel/stats'}>Статистика</Link>
 
 
         </div>

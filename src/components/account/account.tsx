@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
+import Link from "next/link";
+import Image from "next/image";
 import './account.scss'
 
 import sampleAvatar from '@/assets/images/logoSample.jpg'
@@ -68,8 +68,8 @@ const Account: FC <Account>= ({user_id, date}) => {
     return(
         <>
             {userFetched && user.length > 0 &&<div className="account">
-                {userFetched && user && <Link to={'/account/' + user_id} className="account_profile">
-                    <img src={user[0].imgPath !== null? 'http://localhost:1000/' + user[0].imgPath : sampleAvatar} alt="avatar" />
+                {userFetched && user && <Link href={'/account/' + user_id} className="account_profile">
+                    <Image src={user[0].imgPath !== null? 'http://localhost:1000/' + user[0].imgPath : sampleAvatar} alt="avatar" />
 
                     <div className="account_profile_info">
                         <div className="account_profile_nickname">{user[0].nickname}</div>

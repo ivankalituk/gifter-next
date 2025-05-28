@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import './anySuggest.scss'
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
 
 import sampleAvatar from '@/assets/images/logoSample.jpg'
 import sampleGift from '@/assets/images/Sample Gift Photo.png'
@@ -10,6 +10,7 @@ import { useUpdateRequest } from "@/hooks/useUpdateRequest";
 import { deleteSuggest } from "@/api/suggest";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { RootState } from "@/interfaces/interface";
+import { useRouter } from "next/router";
 
 interface AnySuggestInterface{
     data: any,
@@ -21,13 +22,13 @@ const AnySuggest: FC <AnySuggestInterface>= ({data, handleDeleteSuggestCallBack}
     const useTypeSelector: TypedUseSelectorHook <RootState> = useSelector
     const user = useTypeSelector((state) => state.user)
 
-    const navigate = useNavigate()
+    const router = useRouter()
 
     const {mutatedFunc: deleteSuggestFunc} = useUpdateRequest({fetchFunc: deleteSuggest})
 
     // лень переделывать стили ссылки
     const handleChangeLink = () =>{
-        navigate('/adminPanel/suggests/submit/' + data.id)
+        router.push('/adminPanel/suggests/submit/' + data.id)
     }
 
     const handleDelete = () => {
