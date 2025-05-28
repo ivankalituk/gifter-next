@@ -1,0 +1,53 @@
+@import '@/assets/styles/veriables';
+
+.adminPanelAdditional{
+    flex: 1;
+    max-width: 25rem;
+    width: 100%;
+    // min-height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 0.75rem;
+    background-color: $color-white;
+    box-shadow: 0px 0.57rem 1rem rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    // gap: 1rem;
+
+    > a{
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: $color-black;
+        padding: 0.5rem;
+        background-color: $color-grey;
+        transition: 0.5s;
+
+        &:first-child{
+            border-radius: 0.75rem 0.75rem 0 0;
+        }
+
+        &:last-child{
+            border-radius: 0 0 0.75rem 0.75rem;
+        }
+
+        &:hover{
+            transition: 0.5s;
+            background-color: $color-grey-hover;
+        }
+
+        &:active{
+            transition: 0.5s;
+            background-color: $color-grey-active;
+        }
+
+        &.chosen{
+            background-color: $color-grey-hover;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .adminPanelAdditional{
+        display: none;
+    }
+}

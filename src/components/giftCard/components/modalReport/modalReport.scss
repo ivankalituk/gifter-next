@@ -1,0 +1,72 @@
+@import '@/assets/styles/veriables';
+
+.modalReport {
+
+  > .modalReport_container {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+
+    > .modalReport_content {
+      width: 50rem;
+      height: 21.42rem;
+      padding: 1.14rem;
+      box-sizing: border-box;
+      border-radius: 0.85rem;
+      display: flex;
+      flex-direction: column;
+
+      > span{
+        font-weight: 700;
+        font-size: 1.71rem;
+      }
+
+      > textarea{
+        margin-top: 0.35rem;
+        outline: none;
+        border: 1px $color-grey solid; 
+        border-radius: 8px;
+        padding: 0.85rem;
+        box-sizing: border-box;
+        white-space: pre-wrap;
+        resize: none;
+        flex: 1;
+      }
+
+      > button{
+        margin-top: 0.35rem;
+        max-height: 2rem;
+        box-sizing: border-box;
+        padding: 0.35rem;
+        background-color: $color-red;
+        border-radius: 0.35rem;
+        color: $color-white;
+        font-weight: 700;
+        border: none;
+        transition:  $transition-speed-button;
+        cursor: pointer;
+
+        &:hover{
+            transition:  $transition-speed-button;
+            background-color: $color-red-hover;
+        }
+
+        &:active{
+            transition:  $transition-speed-button;
+            background-color: $color-red-active;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .modalReport{
+    width: 100%;
+    > .modalReport_container{
+      > .modalReport_content{
+        width: 100%;
+      }
+    }
+  }
+}

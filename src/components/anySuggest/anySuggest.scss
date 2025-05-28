@@ -1,0 +1,68 @@
+@import '@/assets/styles/veriables';
+
+.suggest{
+    background-color: $color-white;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0px 0.57rem 1rem rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-sizing: border-box;
+    
+    > .suggest_comment{
+        margin-top: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+    }
+
+    > .suggest_gift{
+        margin-top: 1rem;
+        > img{
+            width: 100%;
+            // max-width: 100%;
+        }
+
+        > .suggest_gift_name{
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+
+            // сделать оверфлоу на втором рядке
+        }
+
+        > .suggest_gift_tags{
+            overflow: hidden;
+            max-height: 4.28rem;
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+
+            > .suggest_gift_tag{
+                max-height: 2rem;
+                box-sizing: border-box;
+                padding: 0.35rem;
+                background-color: $color-red-light;
+                border-radius: 0.42rem;
+                color: $color-white;
+                font-weight: 700;
+            }
+        }
+    }
+
+
+    > .suggest_buttons{
+        margin-top: 0.5rem;
+        display: flex;
+        gap: 0.5rem;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .suggest{
+        max-width: none;
+        
+    }
+}

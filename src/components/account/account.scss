@@ -1,0 +1,108 @@
+@import '@/assets/styles/veriables';
+
+.account{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > .account_profile{
+        display: flex;
+        align-items: center;
+        max-width: 300px;
+        width: 100%;
+        // width: 300px;
+        height: 3rem;
+        background-color: $color-grey;
+        border-radius: 1.5rem;
+        padding: 0.35rem;
+        box-sizing: border-box;
+        gap: 0.5rem;
+        text-decoration: none;
+
+        > img{
+            height: auto;
+            width: 2rem;
+            min-width: 2rem; /* Минимальная ширина */
+            min-height: 2rem; /* Минимальная высота */
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px $color-grey-active solid;
+            background-color: $color-grey-hover; /* Цвет фона на случай отсутствия изображения */
+        }
+
+        > .account_profile_info{
+            > .account_profile_nickname{
+                font-weight: 700;
+                color: $color-black;
+            }
+
+            > .account_profile_data{
+                font-size: 0.8rem;
+                color: $color-black;
+            }
+        }
+    }
+
+    > .account_additional{
+        // position: absolute;
+    
+        > .account_additional_container {
+            position: relative;
+    
+            > img{
+                top: 1rem;
+                left: 1rem;
+                cursor: pointer;
+                opacity: 0.5;
+                transition: $transition-speed-button;
+    
+                &:hover{
+                    transition: $transition-speed-button;
+                    opacity: 1;
+                }
+            }
+    
+            > .account_additional_buttons{
+                box-shadow: 0.57rem 0.3rem rgba(0, 0, 0, 0.08);
+                position: absolute;
+                right: 30px;
+                top: 0;
+                border-radius: 12px;
+
+                > button{
+                    width: 150px;
+                    border: none;
+                    outline: none;
+                    padding: 0.85rem 1.71rem;
+                    box-sizing: border-box;
+                    background-color: $color-white;
+                    border-radius: 12px;
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    transition: $transition-speed-button;
+                    cursor: pointer;
+                    
+                    &:hover{
+                        background-color: $color-grey-hover;
+                        transition: $transition-speed-button;
+                    }
+        
+                    &:active{
+                        background-color: $color-grey-active;
+                        transition: $transition-speed-button;
+                    }
+                }
+
+                &.active{
+                    animation: additionalIn 0.5s forwards;
+                }
+    
+                &.disabled{
+                    animation: additionalOut 0.5s forwards;
+                }
+            }
+        }
+    }
+}
+
