@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const serverUrl = process.env.REACT_APP_SERVER_URL
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL
 
 export async function getTagByInput(data: any) {
     try{

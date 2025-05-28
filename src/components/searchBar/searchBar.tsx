@@ -3,6 +3,7 @@ import './searchBar.scss'
 
 import searchSign from '@/assets/images/Search.svg'
 import { Tag } from "@/interfaces/interface";
+import Image from "next/image";
 
 interface SearchBar {
     searchInput: string,                                           //валью инпута, которое меняется с каждым символом
@@ -101,7 +102,7 @@ const SearchBar: FC <SearchBar> = ({searchInput, results, handleSearchInputCallB
             {/* когда фокус и есть результаты.ленгз > 1, то добавить резултс в классы*/}
             <div className={`${(inputFocus && results && results.length > 0)? "searchBar_container results" : "searchBar_container"} ${inputShow? 'show' : ''}`}>
 
-                <img src={searchSign} alt="search" />
+                <Image src={searchSign} alt="search" />
 
                 <input type="text" placeholder="Введіть тег" onFocus={handleFocus} onBlur={handleUnFocus} value={searchInput} onChange={(event) => handleInputChange(event)} onKeyDown={(event) => handleSpecialKeyDown(event)}/>
  

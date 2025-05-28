@@ -85,6 +85,9 @@ export default function Home() {
     }
   
 
+    const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL
+    console.log(serverUrl)
+
   return (
     <div className={styles.app}>
       <Header scrollCallback = {scrollCallback} nameSearchCallBack={nameSearchCallBack}/>

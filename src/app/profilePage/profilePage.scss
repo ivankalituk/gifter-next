@@ -1,0 +1,327 @@
+@import '@/assets/styles/veriables';
+
+.profilePage{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 1rem 36px;
+    box-sizing: border-box;
+    display: flex;  
+    gap: 1rem;
+    align-items: flex-start;
+
+    > .profilePage_leftColumn{
+        flex: 1;
+        background-color: $color-white;
+        box-shadow: 0px 0.57rem 1rem rgba(0, 0, 0, 0.08);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        box-sizing: border-box;
+        max-width: 25rem;
+        display: flex;
+        flex-direction: column;
+
+        > .profilePage_leftColumn_avatar{
+            aspect-ratio: 1 / 1;
+            flex: 1;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px $color-grey solid;
+            box-sizing: border-box;
+        }
+
+        > .profilePage_leftColumn_nickname{
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        > .profilePage_leftColumn_description{
+            margin-top: 1rem;
+
+            > .profilePage_leftColumn_description_heading{
+                font-size: 1.5rem;
+                font-weight: 700;
+                opacity: 0.5;
+            }
+
+            > .profilePage_leftColumn_description_text{
+                font-size: 1.2rem;
+            }
+        }
+
+        > .profilePage_leftColumn_usedTags{
+            margin-top: 1rem;
+
+            > .profilePage_leftColumn_usedTags_heading{
+                font-size: 1.5rem;
+                font-weight: 700;
+                opacity: 0.5;
+            }
+
+            > .profilePage_leftColumn_usedTags_tags{
+                display: flex;
+                gap: 0.35rem;
+                flex-wrap: wrap;
+
+                > div{
+                    background-color: $color-red-light;
+                    color: $color-white;
+                    border-radius: 0.35rem;
+                    padding: 0.35rem;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        > a{
+            margin-top: 0.7rem;
+        }
+
+    }
+
+    > .profilePage_rightColumn{
+        overflow: hidden;
+        flex: 1;
+
+        > .profilePage_rightColumn_info{
+            background-color: $color-white;
+            box-shadow: 0px 0.57rem 1rem rgba(0, 0, 0, 0.08);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-sizing: border-box;
+            
+            > .profilePage_rightColumn_accountInfo{
+                display: none;
+                align-items: center;
+                gap: 1rem;
+
+                > img{
+                    width: 7rem;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    border: 3px solid $color-grey;
+                    border-radius: 50%;
+                    box-sizing: border-box;
+                }
+
+                > .profilePage_rightColumn_accountInfo_info{
+                    display: flex;
+                    flex-direction: column;
+                    
+                    > div{
+                        font-size: 3rem;
+                        font-weight: 700;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                    }
+                }
+            }
+
+            > .profilePage_rightColumn_drop{
+                overflow: hidden;
+                max-height: 0px;
+                transition: max-height 0.5s ease;
+                
+                &.open{
+                    max-height: 500px;
+                }
+
+                > .profilePage_rightColumn_description{
+                    margin-top: 1rem;
+                    display: none;
+                    > .profilePage_rightColumn_description_heading{
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                        opacity: 0.5;
+                    }
+    
+                    > .profilePage_rightColumn_description_text{
+                        font-size: 1.2rem;
+                    }
+                }
+    
+                > .profilePage_rightColumn_usedTags{
+                    margin-top: 1rem;
+                    display: none;
+    
+                    > .profilePage_rightColumn_usedTags_heading{
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                        opacity: 0.5;
+                    }
+    
+                    > .profilePage_rightColumn_usedTags_list{
+                        display: flex;
+                        gap: 0.35rem;
+                        flex-wrap: wrap;
+    
+                        > div{
+                            background-color: $color-red-light;
+                            color: $color-white;
+                            border-radius: 0.35rem;
+                            padding: 0.35rem;
+                            font-weight: 700;
+                        }
+                    }
+                }
+    
+                > .profilePage_rightColumn_addedTags{
+                    margin-top: 1rem;
+    
+                    > .profilePage_rightColumn_addedTags_heading{
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                        opacity: 0.5;
+                    }
+        
+                    > .profilePage_rightColumn_addedTags_tags{
+                        display: flex;
+                        gap: 0.35rem;
+                        flex-wrap: wrap;
+        
+                        > div{
+                            background-color: $color-red-light;
+                            color: $color-white;
+                            border-radius: 0.35rem;
+                            padding: 0.35rem;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+
+            > .profilePage_rightColumn_addedTags{
+                margin-top: 1rem;
+
+                > .profilePage_rightColumn_addedTags_heading{
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    opacity: 0.5;
+                }
+    
+                > .profilePage_rightColumn_addedTags_tags{
+                    display: flex;
+                    gap: 0.35rem;
+                    flex-wrap: wrap;
+    
+                    > div{
+                        background-color: $color-red-light;
+                        color: $color-white;
+                        border-radius: 0.35rem;
+                        padding: 0.35rem;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            > .profilePage_rightColumn_tick{
+                display: none;
+            }
+        }
+
+        > .profilePage_rightColumn_gifts{
+            border-radius: 0.75rem;
+            box-sizing: border-box;
+
+            > a{
+                display: none;
+            }
+
+            > .profilePage_rightColumn_gifts_list{
+                margin-top: 1rem;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                // flex-direction: column;
+                flex-wrap: wrap;
+                gap: 1rem;
+
+                >     .giftCard{
+                    flex: 1;
+                    display: flex;
+            
+                    > .giftCard_container{
+                        flex: 1;
+                        height: 100%;
+            
+                        > .giftCard_inner{
+                            > img{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    .profilePage{
+
+        > .profilePage_rightColumn{
+            >.profilePage_rightColumn_gifts{
+                >.profilePage_rightColumn_gifts_list{
+                    display: grid;
+                    grid-template-columns: 1fr;
+                }
+            }
+        }
+
+    }
+}
+
+@media (max-width: 1000px) {
+    .profilePage{
+        padding: 1rem;
+
+        > .profilePage_leftColumn{
+            display: none;
+        }
+
+        > .profilePage_rightColumn{
+            > .profilePage_rightColumn_info{
+
+                > .profilePage_rightColumn_accountInfo{
+                    display: flex;
+                }
+
+                    > .profilePage_rightColumn_drop{
+                    
+                    > .profilePage_rightColumn_description{
+                        display: block;
+                    }
+
+                    > .profilePage_rightColumn_usedTags{
+                        display: block;
+                    }
+                }
+
+                > .profilePage_rightColumn_addedTags{
+                    display: none;
+                }
+
+                > .profilePage_rightColumn_tick{
+                    padding-top: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                }
+            }
+
+            > .profilePage_rightColumn_gifts{
+                >a{
+                    margin-top: 1rem;
+                    display: flex;
+                }
+            }
+        }
+
+    }
+}

@@ -1,7 +1,7 @@
 import { Gift, giftName } from "@/interfaces/interface";
 import axios from "axios"
 
-const serverUrl = process.env.REACT_APP_SERVER_URL
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL
 
 // получить все подарки по тегам
 export async function getAllGifts(): Promise<Gift[]> {
