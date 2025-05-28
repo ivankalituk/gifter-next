@@ -1,0 +1,200 @@
+@import '@/assets/styles/veriables';
+
+.selectors{
+    position: relative;
+    padding: 0.71rem;
+    box-sizing: border-box;
+    margin: 3.57rem 0 1.57rem 0;
+    width: 22rem;
+    height: 3.35rem;
+    background-color: $color-white;
+    border-radius: 0.57rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    > .selectors_filters{
+        display: none;
+        flex: 1;
+        height: 100%;
+        border: none;
+        outline: none;
+        background-color: $color-grey;
+        border-radius: 0.57rem;
+        transition: $transition-speed-button;
+
+        // &:hover{
+        //     transition: $transition-speed-button;
+        //     background-color: $color-grey-hover;
+        // }
+
+        &:active{
+            transition: $transition-speed-button;
+            background-color: $color-grey-active;
+        }
+    }
+
+
+    > .main_selector{
+        position: relative;
+        flex: 1;
+
+        > .selector_selectedOption{
+            border: none;
+            outline: none;
+            width: 100%;
+            z-index: 100;
+            position: relative;
+            background-color: $color-grey;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 0.57rem;
+            padding: 0.35rem 0.71rem;
+            box-sizing: border-box;
+            cursor: pointer;
+
+            > button{
+                font-weight: 700;
+            }
+        }
+
+        > .selector_options {
+            position: absolute;
+            cursor: pointer;
+            width: 100%;
+            background-color: $color-grey;
+            padding: 0.71rem;
+            top: 1.5rem;
+            left: 0;
+            z-index: 99;
+            height: 6.2rem;
+            border-radius: 0 0 0.57rem 0.57rem;
+            box-sizing: border-box;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-20%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        
+            > button {
+                cursor: pointer;
+                text-align: left;
+                display: block;
+                flex: 1;
+                outline: none;
+                border: none;
+                background-color: transparent;
+                font-weight: 700;
+                margin: 0.35rem 0 0 0;
+                box-sizing: border-box;
+
+
+            }
+        }
+    }
+}
+
+
+.selector_options.open {
+    animation: selectorOpen 0.3s forwards;
+}
+
+.selector_options.close {
+    animation: selectorClose 0.3s forwards;
+    pointer-events: none;
+}
+
+.selector_tick.open{
+    transform: rotateZ(180deg);
+    transition: 0.3s;
+}
+
+.selector_tick.close{
+    transform: rotateZ(0deg);
+    transition: 0.3s;
+}
+
+.selector_selectedOption.open{
+    animation: selectedOpen 0.3s forwards;
+}
+
+.selector_selectedOption.close{
+    animation: selectedClose 0.3s forwards;
+}
+
+@keyframes selectedOpen {
+    0%{
+        background-color: $color-grey;
+    }
+    100%{
+        background-color: $color-grey-hover;
+    }  
+}
+
+@keyframes selectedClose {
+    0%{
+        background-color: $color-grey-hover;
+    }
+    100%{
+        background-color: $color-grey;
+    }  
+}
+
+@keyframes selectorOpen {
+    0% {
+        transform: translateY(-20%);
+        opacity: 0;
+        background-color: $color-grey;
+    }
+    70% {
+        transform: translateY(3%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+        background-color: $color-grey-hover;
+    }
+}
+
+@keyframes selectorClose {
+    0% {
+        transform: translateY(0%);
+        opacity: 1;
+        background-color: $color-grey-hover;
+    }
+    100% {
+        transform: translateY(-20%);
+        opacity: 0;
+        height: 0; 
+        overflow: hidden;
+        background-color: $color-grey;
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 1000px) {
+    .selectors{
+        width: 100%;
+        margin: 1.57rem 0 1.57rem 0;
+
+        > .selectors_filters{
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .selectors{
+        width: 100%;
+        margin: 1.57rem 0 1.57rem 0;
+        gap: 0.71rem;
+
+        > .selectors_filters{
+            display: block;
+        }
+    }
+}

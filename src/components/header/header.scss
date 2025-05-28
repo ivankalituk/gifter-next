@@ -1,0 +1,264 @@
+@import '@/assets/styles/veriables';
+
+header{
+    background-color: $color-red;
+    
+    > .header_container{
+        max-width: 102.857rem;
+        margin: 0 auto;
+        padding: 0 2.57rem;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        height: 3.57rem;
+        justify-content: space-between;
+        
+
+        > .header_leftGroup{
+            display: flex;
+            align-items: center;
+            gap: 9.4rem;
+            
+            > a{
+                text-decoration: none;
+                display: flex;
+                color: $color-white;
+                gap: 0.357rem;
+                align-items: center;
+
+                >img{
+                    height: 2.357rem;
+                    width: 2.714rem;
+                }
+
+                > h1{
+                    text-transform: uppercase;
+                    font-weight: 900;
+                    font-size: 2.285rem;
+                }
+            }
+        }
+
+        .header_profile{
+            display: flex;
+        }
+
+        > .burgerMenu{
+            // box-sizing: border-box;
+        
+            background-color: transparent;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+
+            > img{
+                height: 2.5rem;
+                width: 2.5rem;
+            }
+        }
+
+        > .burgerMenu_Menu{
+            position: absolute;
+
+            > .burgerMenu_Menu_background{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Затемнение */
+                opacity: 0; /* Скрыто по умолчанию */
+                pointer-events: none; /* Не взаимодействуем с фоном, пока меню закрыто */
+                transition: opacity 0.3s ease;
+                z-index: 999; /* Чтобы затемнение было под меню */
+    
+                &.open{
+                    opacity: 1; /* Показываем затемнение при открытии меню */
+                    pointer-events: all; /* Позволяем взаимодействовать с фоном */
+                }
+            }
+
+            > .burgerMenu_Menu_content{
+                position: fixed;
+                top: 0;
+                right: -250px; /* Скрыто по умолчанию */
+                width: 250px;
+                height: 100%;
+                background-color: $color-white;
+                color: white;
+                transition: right 0.3s ease;
+                z-index: 1000; /* Чтобы меню было выше затемнения */
+
+                &.open{
+                    right: 0; /* Выезжает на экран */
+                }
+
+                > .burgerMenu_account{
+                    position: relative;
+                    height: 150px;
+                    background-color: red;
+
+                    > img{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 150px;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+
+                    > .burgerMenu_account_info_container{
+                        bottom: 5px;
+                        width: 100%;
+                        position: absolute;
+                        // background-color: red;
+                        box-sizing: border-box;
+                        padding: 0 0.5rem;
+
+                        > .burgerMenu_account_info_inner{
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                            background-color: rgba(0, 0, 0, 0.7);
+                            border-radius: 1.5rem;
+
+                            > img{
+                                height: 3rem;
+                                width: 3rem;
+                                object-fit: cover;
+                                border-radius: 50%;
+                                box-sizing: border-box;
+                                border: 1px solid $color-grey;
+                            }
+
+                            > .burgerMenu_account_info_registration{
+                                width: 100%;
+                                height: 3rem;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-around;
+                            }
+                        }
+                    }
+                }
+
+                > .burgerMenu_links{
+
+                    &:nth-child(2){
+                        border: 1px solid $color-grey-hover;
+                    }
+
+                    >a{
+                        margin-top: 0.5rem;
+                        text-decoration: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        height: 1.5rem;
+                        padding: 0.8rem;
+                        margin: 0.5rem 0;
+
+                        > img{
+                            height: 1.5rem;
+                            width: 1.5rem;
+                        }
+
+                        > span{
+                            font-weight: 700;
+                            font-size: 1.4rem;
+                            color: $color-black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// для появления бургера
+@keyframes fadeAndHideBurger {
+    0%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    75%{
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(100%);
+        opacity: 1;
+        display: none;
+    }
+}
+
+@keyframes fadeAndSlideBurger {
+    0%{
+        display: block;
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    25%{
+        opacity: 1;
+        display: block;
+        transform: translateX(0);
+    }
+    100%{
+        opacity: 1;
+        display: block;
+    }
+}
+
+// для заднего фона бургера
+@keyframes opacityFadeBG {
+    0%{
+        display: block;
+        opacity: 0;
+    }
+    100%{
+        opacity: 0.7;
+    }
+}
+
+@keyframes opacityUnFadeBG {
+    0%{
+        opacity: 0.7;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
+
+
+// адаптив
+@media (max-width: 1000px) {
+    header{
+
+        > .header_container{
+            padding: 0 1rem;
+            gap: 1rem;
+
+            > .header_leftGroup{
+                gap: 1rem;
+                flex: 1;
+
+                > a{
+                    > h1{
+                        display: none;
+                    }
+                }
+            }
+
+            > .header_profile{
+                display: none;
+            }
+
+            > .burgerMenu{
+                display: flex;
+            }
+        }
+    }
+}

@@ -1,0 +1,74 @@
+@import '@/assets/styles/veriables';
+
+.mainPage{
+    flex: 1;
+    background-color: $color-grey;
+    padding: 0 1rem 0 0;    //пединг безопасности только справа тк слева фильтры
+
+    > .mainPage_container{
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex;
+
+        > .mainPage_giftContent{
+            margin-left: 6.85rem;
+            flex: 1;
+
+            > .mainPage_giftContent_giftList{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2.85rem;
+            }
+
+            > .mainPage_giftContent_pageSwich{
+                // margin-top: 1rem;
+                display: flex;
+                max-width: 400px;
+                gap: 1rem;
+                margin: 1rem auto;
+                align-items: center;
+
+                >div{
+                    font-weight: 900;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .mainPage{
+        padding: 0 1rem;
+
+        > .mainPage_container{
+            .mainPage_giftContent{
+                margin-left: 0;
+
+                > .mainPage_giftContent_giftList{
+                    gap: 1.5rem;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 665px) {
+    .mainPage{
+        padding: 0 1rem;
+
+        > .mainPage_container{
+            .mainPage_giftContent{
+                margin-left: 0;
+
+                > .mainPage_giftContent_giftList{
+                    gap: 1.5rem;
+                    display: flex;
+                    // grid-template-columns: 1fr 1fr;
+                }
+            }
+        }
+    }
+}
