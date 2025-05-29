@@ -20,10 +20,9 @@ import Image from 'next/image';
 interface ModalGiftInterface {
     handleGiftModalClose: () => void
     modalProps: any
-    scrollCallback: (block: boolean) => void
 }
 
-const ModalGift: FC <ModalGiftInterface>= ({handleGiftModalClose, modalProps, scrollCallback}) => {
+const ModalGift: FC <ModalGiftInterface>= ({modalProps}) => {
 
     const serverUrl = process.env.REACT_APP_API_URL
 
@@ -69,8 +68,6 @@ const ModalGift: FC <ModalGiftInterface>= ({handleGiftModalClose, modalProps, sc
 
     const handleLinkToUser = () => {
         router.push('/account/' + creator[0].id)
-
-        scrollCallback(false)
     }
 
     // --------------

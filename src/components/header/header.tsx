@@ -37,9 +37,21 @@ const Header: FC<HeaderProps> = ({scrollCallback, nameSearchCallBack}) =>{
 
     const [burgerMenu, setBurgerMenu] = useState<boolean>(true)
 
+    // nav-burger toggle 
     const handleBurger = () =>{
         setBurgerMenu(!burgerMenu)
-        scrollCallback(burgerMenu)
+
+        if(burgerMenu){
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'auto'
+        }
+    }
+
+    // предотвращение блокировки скролла при переходе по ссылкам бургера
+    const handleNavBurger = () =>{
+        setBurgerMenu(true)
+        document.body.style.overflow = 'auto'
     }
 
 
@@ -91,7 +103,6 @@ const Header: FC<HeaderProps> = ({scrollCallback, nameSearchCallBack}) =>{
 
     const handleGiftModalClose = () =>{
         setGiftModal(false)
-        scrollCallback(false)
     }
 
     const handleRandomGiftCallBack = () => {
@@ -152,44 +163,44 @@ const Header: FC<HeaderProps> = ({scrollCallback, nameSearchCallBack}) =>{
                     </div>
 
                     <div className="burgerMenu_links">
-                        <Link href={'/'}>
+                        <Link href={'/'} onClick={handleNavBurger}>
                             <Image src={mainPageSVG} alt="mainPage"/>
                             <span>Головна</span>
                         </Link>
                         
-                        <Link href={'/suggest'}>
+                        <Link href={'/suggest'} onClick={handleNavBurger}>
                             <Image src={suggestPageSVG} alt="suggest"/>
                             <span>Запропонувати</span>
                         </Link>
 
-                        <Link href={'/profile'}>
+                        <Link href={'/profile'} onClick={handleNavBurger}>
                             <Image src={profilePageSVG} alt="profile"/>
                             <span>Профіль</span>
                         </Link>
                         
-                        <Link href={'/settings'}>
+                        <Link href={'/settings'} onClick={handleNavBurger}>
                             <Image src={settingsPageSVG} alt="settings"/>
                             <span>Налаштування</span>
                         </Link>
                     </div>
 
                     <div className="burgerMenu_links">
-                        <Link href={'/adminPanel/suggests'}>
+                        <Link href={'/adminPanel/suggests'} onClick={handleNavBurger}>
                             <Image src={suggestListPageSVG} alt="suggestLi"/>
                             <span>Пропозиції</span>
                         </Link>
                         
-                        <Link href={'/adminPanel/reports'}>
+                        <Link href={'/adminPanel/reports'} onClick={handleNavBurger}>
                             <Image src={reportsPageSVG} alt="report"/>
                             <span>Скарги</span>
                         </Link>
 
-                        <Link href={'/adminPanel/admins'}>
+                        <Link href={'/adminPanel/admins'} onClick={handleNavBurger}>
                             <Image src={adminPageSVG} alt="admin"/>
                             <span>Адміни</span>
                         </Link>
                         
-                        <Link href={'/adminPanel/blacklist'}>
+                        <Link href={'/adminPanel/blacklist'} onClick={handleNavBurger}>
                             <Image src={blacklistPageSVG} alt="blacklist"/>
                             <span>Чорний список</span>
                         </Link>
@@ -200,7 +211,7 @@ const Header: FC<HeaderProps> = ({scrollCallback, nameSearchCallBack}) =>{
                 </div>
             </div>
 
-            {giftModal && <Modal onClose = {handleGiftModalClose} Component={ModalGift} modalProps={{gift_id: randomGift[0].id}} scrollCallback = {scrollCallback}/>}
+            {giftModal && <Modal onClose = {handleGiftModalClose} Component={ModalGift} modalProps={{gift_id: randomGift[0].id}}/>}
         </header>
     )
 }
