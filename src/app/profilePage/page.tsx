@@ -28,7 +28,7 @@ const ProfilePage: FC = () => {
 
     const params = useSearchParams()
     const user_id = params?.get('user_id')
-    const type:string = "anyUser"
+    const type:string = "privateUser"
     
     const {data: gifts, isFetched: giftsFetched} = useGetRequest<Gift[] | undefined>({fetchFunc:  () => getAllGiftsByCreatorId(type === "anyUser"? Number(user_id) : user.user_id, user.user_id !== null? user.user_id : 0), enabled: true, key: [1]})
 
@@ -51,17 +51,17 @@ const ProfilePage: FC = () => {
     return(
         <div className="profilePage">
             <div className="profilePage_leftColumn">
-
+                
                 {type === "privateUser" && <Image className="profilePage_leftColumn_avatar" src={user.user_imgUrl? 'http://localhost:1000/' + user.user_imgUrl :profilePhoto} alt="profile photo" />}
                 {type !== "privateUser" && accountFetched && <Image className="profilePage_leftColumn_avatar" src={account[0].imgPath? 'http://localhost:1000/' + account[0].imgPath :profilePhoto} alt="profile photo" />}
 
                 {type === "privateUser" && <div className="profilePage_leftColumn_nickname">{user.user_nickName}</div>}
                 {type !== "privateUser" && accountFetched && <div className="profilePage_leftColumn_nickname">{account[0].nickname}</div>}
-
+{/* 
                 {bioFetched && bio[0].bio !== null && <div className="profilePage_leftColumn_description">
                     <div className="profilePage_leftColumn_description_heading">Біо:</div>
                     <div className="profilePage_leftColumn_description_text">{bio[0].bio}</div>
-                </div>}
+                </div>} */}
 
                 {tagsFetched && tags !== null && tags.length > 0 && <div className="profilePage_leftColumn_usedTags">
                         <div className="profilePage_leftColumn_usedTags_heading">Використані теги</div>
@@ -97,7 +97,7 @@ const ProfilePage: FC = () => {
                             <div className="profilePage_rightColumn_description">
                                 <div className="profilePage_rightColumn_description_heading">Біо:</div>
 
-                                {bioFetched && bio && <div className="profilePage_rightColumn_description_text">{bio[0].bio}</div>}
+                                {/* {bioFetched && bio && <div className="profilePage_rightColumn_description_text">{bio[0].bio}</div>} */}
                             </div>
 
                             {tagsFetched && tags.length > 0 && <div className="profilePage_rightColumn_usedTags">
@@ -158,12 +158,11 @@ const ProfilePage: FC = () => {
                 <div className="profilePage_rightColumn_gifts">
                     {type == 'privateUser' && <Link href={'/suggest'} className="link_button">Запропонувати</Link>}
 
-                    {/* <div className="profilePage_rightColumn_gifts_list">
+                    <div className="profilePage_rightColumn_gifts_list">
                         {gifts && giftsFetched && gifts.map((data, index) => (
-                            
-                            <GiftCard scrollCallback={scrollCallback} data = {data} key={index} />
+                            <GiftCard data = {data} key={index} />
                         ))}
-                    </div> */}
+                    </div>
                 </div>
 
             </div>
