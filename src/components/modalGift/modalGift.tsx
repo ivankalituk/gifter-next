@@ -67,7 +67,7 @@ const ModalGift: FC <ModalGiftInterface>= ({modalProps}) => {
     const router = useRouter()
 
     const handleLinkToUser = () => {
-        router.push('/account/' + creator[0].id)
+        router.push('/profilePage/' + creator[0].id)
     }
 
     // --------------

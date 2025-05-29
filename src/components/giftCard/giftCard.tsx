@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from "react";
-import Link from "next/link";
 
 import './giftCard.scss'
 
@@ -19,11 +18,10 @@ import { RootState } from "@/interfaces/interface";
 import Image from "next/image";
 
 interface GiftCardInterface  {
-    scrollCallback: (block: boolean) => void
     data: any
 }
 
-const GiftCard: FC <GiftCardInterface> = ({scrollCallback, data}) =>{
+const GiftCard: FC <GiftCardInterface> = ({data}) =>{
 
     const [additional, setAditional] = useState<boolean>(false)                     //для отображение доп функций (три точки)
     const [report, setReport] = useState<boolean>(false)                            //для открытия модального репорта
@@ -32,26 +30,22 @@ const GiftCard: FC <GiftCardInterface> = ({scrollCallback, data}) =>{
     // открытие модального подарка
     const handleGiftModalOpen = () =>{
         setGiftModal(true)
-        scrollCallback(true)
     }
 
     // колбек для закрытия модального подарка
     const handleGiftModalClose = () =>{
         setGiftModal(false)
-        scrollCallback(false)
     }
 
     // открытие модального репорта
     const handleReportOpen = () =>{
         setReport(true)
-        scrollCallback(true)
         handleAdditional()
     }
 
     // колбек для закрытия модального репорта
     const handleReportClose = () => {
         setReport(false)
-        scrollCallback(false)
     }
 
 
@@ -133,9 +127,9 @@ const GiftCard: FC <GiftCardInterface> = ({scrollCallback, data}) =>{
                 <div className="giftCard_mark"><Image src={mark}  alt="mark" className={marked? "active": ""} onClick={handleMarked}/></div>
             </div>
 
-            {report && <Modal onClose = {handleReportClose} Component={ModalReport} modalProps={{gift_id: data.id}} scrollCallback = {scrollCallback}/>}
+            {report && <Modal onClose = {handleReportClose} Component={ModalReport} modalProps={{gift_id: data.id}} />}
 
-            {giftModal && <Modal onClose = {handleGiftModalClose} Component={ModalGift} modalProps={{gift_id: data.id}} scrollCallback = {scrollCallback}/>}
+            {giftModal && <Modal onClose = {handleGiftModalClose} Component={ModalGift} modalProps={{gift_id: data.id}} />}
         </div>
     )
 }
