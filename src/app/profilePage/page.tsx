@@ -52,7 +52,7 @@ const ProfilePage: FC = () => {
         <div className="profilePage">
             <div className="profilePage_leftColumn">
                 
-                {type === "privateUser" && <Image className="profilePage_leftColumn_avatar" src={user.user_imgUrl? 'http://localhost:1000/' + user.user_imgUrl :profilePhoto} alt="profile photo" />}
+                {type === "privateUser" && <Image className="profilePage_leftColumn_avatar" src={user.user_imgUrl? 'http://localhost:1000/' + user.user_imgUrl :profilePhoto} alt="profile photo" fill/>}
                 {type !== "privateUser" && accountFetched && <Image className="profilePage_leftColumn_avatar" src={account[0].imgPath? 'http://localhost:1000/' + account[0].imgPath :profilePhoto} alt="profile photo" />}
 
                 {type === "privateUser" && <div className="profilePage_leftColumn_nickname">{user.user_nickName}</div>}
@@ -76,7 +76,7 @@ const ProfilePage: FC = () => {
                 {type == 'privateUser' && <Link className="link_button" href={'/settings'}>Налаштування</Link>}
                 {type == 'privateUser' && <Link href={'/suggest'} className="link_button">Запропонувати</Link>}
                 {type == 'privateUser' && <Link className="link_button" href={'/adminPanel/suggests'}>Адмін панель</Link>}
-                {type == 'privateUser' && <Link className="link_button" href={'/profile/bookmarks'}>Закладки</Link>}
+                {type == 'privateUser' && <Link className="link_button" href={'/profilePage/bookmarks'}>Закладки</Link>}
                 
             </div>
 
