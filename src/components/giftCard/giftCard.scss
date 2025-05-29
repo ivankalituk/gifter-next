@@ -16,7 +16,8 @@
         
         > .giftCard_inner{
 
-            > img{
+            > .giftCard_inner_giftImg{
+                position: relative;
                 width: 100%;
                 height: auto;
                 aspect-ratio: 280/155;

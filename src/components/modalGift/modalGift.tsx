@@ -14,7 +14,8 @@ import starRed from '@/assets/images/StarRed.svg'
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import { RootState } from '@/interfaces/interface';
 import { useUpdateRequest } from '@/hooks/useUpdateRequest';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 interface ModalGiftInterface {
     handleGiftModalClose: () => void
@@ -127,24 +128,24 @@ const ModalGift: FC <ModalGiftInterface>= ({handleGiftModalClose, modalProps, sc
 
                     <div className="modalGift_reating">
                         <div className="modalGift_reating_stars">
-                            <img src={starGrey} alt="star" />
-                            <img src={starGrey} alt="star" />
-                            <img src={starGrey} alt="star" />
-                            <img src={starGrey} alt="star" />
-                            <img src={starGrey} alt="star" />
+                            <Image src={starGrey} alt="star" />
+                            <Image src={starGrey} alt="star" />
+                            <Image src={starGrey} alt="star" />
+                            <Image src={starGrey} alt="star" />
+                            <Image src={starGrey} alt="star" />
                         </div>
 
                         <div className="modalGift_reating_reating" style={gift[0].reating !== null? {width: gift[0].reating*20 +'%'} : {width: '0%'}} >
-                            <img src={starYellow} alt="star" />
-                            <img src={starYellow} alt="star" />
-                            <img src={starYellow} alt="star" />
-                            <img src={starYellow} alt="star" />
-                            <img src={starYellow} alt="star" />
+                            <Image src={starYellow} alt="star" />
+                            <Image src={starYellow} alt="star" />
+                            <Image src={starYellow} alt="star" />
+                            <Image src={starYellow} alt="star" />
+                            <Image src={starYellow} alt="star" />
                         </div>
                             
                         <div className="modalGift_reating_change">
                             {[...Array(5)].map((_, index: number) => (
-                                <img
+                                <Image
                                     src={starRed}
                                     alt="star"
                                     key={index}
